@@ -1,0 +1,198 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://fonts.googleapis.com/css?family=Lexend' rel='stylesheet'>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
+    <script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
+    <title>Money Budgetting</title>
+        <style>
+        .heading {
+          margin-top: 20px;
+          font-size: 40px;
+          font-weight: 700;
+          font-family: 'Lexend';
+          justify-content: center;
+        }
+        
+        .text {
+            font-family: 'Lexend';
+            font-size: 20px;
+            font-weight: 500;
+            color: black;
+        }
+        .border {
+            border: 1px solid;
+            border-radius: 15px;
+            height: 75vh;
+        }
+
+        body {
+            background-color: #FFF8DE;
+        }
+
+        #form-budget {
+            height: 50px;
+            border-radius: 15px;
+        }
+
+        .bba {
+            background-color: #D6E8DB;
+            border-radius: 15px;
+        }
+        
+        #form-budget {
+            background-color: #D6E8DB;
+            border: 1px solid thin;
+        }
+        .form-select {
+            background-color: #D6E8DB;
+            border: #000000;
+            border-style: ridge;
+            border-width: 2px;
+        }
+
+        .btn {
+            background-color: #99A98F;
+            color: #FFF8DE;
+            border-radius: 15px;
+        }
+
+        .btn:hover{
+            background-color: #99A98F;
+        }
+
+        .form-p{
+            background-color: #D6E8DB;
+            border: #000000;
+            border-style: ridge;
+            border-width: 2px;
+        }
+
+  
+        </style>
+</head>
+<body>
+    <div class="row text-center heading">
+        Money Budgetting
+    </div>
+
+    <div class="container">
+        <div class="row border mt-4" style="background-color: #EBF0DC; ">
+            <div class="col-md-12 text-center">
+                <form action="/handle" method="post" class="mt-4 form-outline" id="form-id">
+                    <div class="row d-flex justify-content-center mt-5">
+                        <label class="text form-label mb-3">Enter your budget here</label>
+                        <input type="text" action=""id="form-budget" class="form-control w-50 mx-auto" style="border: #000000 ridge 2px;" name="budget" value="0"></input>
+                   
+                    <h2 for="" class="text mt-4 mb-4">Allocate your budget based on percentage: </h2>
+                    
+                    <div class="row d-flex justify-content-center mb-2">
+                        <div class="col-md-2">
+                            <select name="category1" id="category1" class="form-select" onsubmit="required()">
+                                <option value="0"></option>
+                                <option value="Food">Food</option>
+                                <option value="Asset">Asset</option>
+                                <option value="Entertainment">Entertainment</option>
+                                <option value="Utilities">Utilities</option>
+                            </select>
+                        </div>
+
+                        <div class="col-md-1">
+                            <input type="text" class="form-control form-p text-center" placeholder="%" name="persen1"  id=""persen1  value="0" onsubmit="required()">
+                        </div>
+                        
+                    </div>
+
+                    <div class="row d-flex justify-content-center mb-2" id="select" >
+                        <div class="col-md-2">
+                            <select class="form-select" name="category2" id="category2" onsubmit="required()">
+                                <option selected value="0"></option>
+                                <option value="Food">Food</option>
+                                <option value="Asset">Asset</option>
+                                <option value="Entertainment">Entertainment</option>
+                                <option value="Utilities">Utilities</option>
+                            </select>
+                        </div>
+
+                        <div class="col-md-1">
+                            <input type="text" class="form-control form-p text-center" placeholder="%" name="persen2"  id="persen2" value=0 onsubmit="required()">
+                        </div>
+
+                    </div>
+                    
+                    <div class="row d-flex justify-content-center mb-2">
+                        <div class="col-md-2" id="cat2">
+                            <select class="form-select" name="category3"id="category3" onsubmit="required()">
+                                <option selected value="0"></option>
+                                <option value="Food">Food</option>
+                                <option value="Asset">Asset</option>
+                                <option value="Entertainment">Entertainment</option>
+                                <option value="Utilities">Utilities</option>
+                            </select>
+                        </div>
+
+                        <div class="col-md-1">
+                            <input type="text" class="form-control form-p text-center" placeholder="%" name="persen3" id="persen3" value="0" onsubmit="required()">
+                        </div>
+
+                    </div>
+                    
+                    <div class="row d-flex justify-content-center mb-2">
+                        <div class="col-md-2" id="cat3">
+                            <select class="form-select" name="category4"id="category4" onsubmit="required()">
+                                <option selected value="0"></option>
+                                <option value="Food">Food</option>
+                                <option value="Asset">Asset</option>
+                                <option value="Entertainment">Entertainment</option>
+                                <option value="Utilities">Utilities</option>
+                            </select>
+                        </div>
+
+                        <div class="col-md-1">
+                            <input type="text" class="form-control form-p text-center" placeholder="%" name="persen4" id="persen4" value="0" onsubmit="required()">
+                        </div>
+                    </div>
+                    
+
+                    <div class="row d-grid gap-2 col-3 mx-auto mt-4">
+                        <input type="submit" class="btn btn-lg" style="border: #000000 solid 2px;" name="submit" value="Generate"></input>
+                    </div>
+                
+                </form>     
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
+<script src="../assets/js/jquery-3.6.0.min.js"></script>
+<script src="../assets/js/bootstrap.bundle.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.3.min.js" integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
+<script>
+    $('select').on('change', function() {
+    $('option').prop('disabled', false);
+    $('select').each(function() {
+        var val = this.value;
+        $('select').not(this).find('option').filter(function() {
+            return this.value === val;
+            }).prop('disabled', true);
+        });
+    }).change();
+
+    // $('#form-id').submit(function() {
+    //     if ($.trim($("#category1").val()) === "" || $.trim($("#category2").val()) === "" || $.trim($("#category3").val()) === "" || $.trim($("#category4").val()) === ""){
+    //         alert("Please input all the field form");
+    //         return false
+    //     }  else {
+    //         return true
+    //     }
+            
+    // });
+
+</script>

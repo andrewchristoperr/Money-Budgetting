@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://fonts.googleapis.com/css?family=Lexend' rel='stylesheet'>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+        crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
+    <!-- <link rel="stylesheet" href="https://pyscript.net/releases/2022.12.1/pyscript.css" />
+    <script defer src="https://pyscript.net/releases/2022.12.1/pyscript.js"></script> -->
+    <title>Money Budgetting</title>
+    <style>
+        .heading {
+            margin-top: 20px;
+            font-size: 40px;
+            font-weight: 700;
+            font-family: 'Lexend';
+            justify-content: center;
+        }
+
+        .sub-heading {
+            font-family: 'Lexend';
+            justify-content: center;
+        }
+        .text {
+            font-family: 'Lexend';
+            font-size: 20px;
+            font-weight: 500;
+            color: black;
+        }
+
+        .border {
+            border: 1px solid;
+            border-radius: 15px;
+            height: 75vh;
+        }
+
+        body {
+            background-color: #FFF8DE;
+        }
+
+        #form-budget {
+            height: 50px;
+            border-radius: 15px;
+        }
+
+        .bba {
+            background-color: #D6E8DB;
+            border-radius: 15px;
+        }
+
+        #form-budget {
+            background-color: #D6E8DB;
+            border: 1px solid thin;
+        }
+
+        .form-select {
+            background-color: #D6E8DB;
+            border: #000000;
+            border-style: ridge;
+            border-width: 2px;
+        }
+
+        .btn {
+            background-color: #99A98F;
+            color: #FFF8DE;
+            border-radius: 15px;
+        }
+
+        .btn:hover {
+            background-color: #99A98F;
+        }
+
+        .form-p {
+            background-color: #D6E8DB;
+            border: #000000;
+            border-style: ridge;
+            border-width: 2px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="row text-center heading">
+        Money Budgetting
+    </div>
+
+    <div class="container">
+        <div class="row border mt-4" style="background-color: #EBF0DC; height: 100%;">
+
+            <h3 class="sub-heading text-center mt-3" >Best Budget Allocation</h3>
+            <div class="justify-content-center text-center">
+                <p class="text-center">
+                {% for i in range (budget_cat | length) %}
+                    {% if cat[i] == 'Food' %}
+                        <p class="text">
+                            {{ cat[i] }}
+                        </p>
+                    {% elif cat[i] == 'Entertainment' %}
+                    <p class="text">
+                        {{ cat[i] }}
+                    </p>
+                    {% elif cat[i] == 'Utilities' %}
+                        <p class="text">
+                            {{ cat[i] }}
+                        </p>
+                    {% elif cat[i] == 'Asset' %}
+                    <p class="text">
+                        {{ cat[i] }}
+                    </p>
+                    {% endif %}
+                    {% for j in range(0, output[i] | length) %}
+                        <p>{{ output[i][j][0] }} $ {{ output[i][j][1] }}</p>
+                    {% endfor %}
+                {% endfor %}
+                </p>
+            </div>
+            
+        </div>
+    </div>
+    </div>
+
+</body>
+
+</html>
